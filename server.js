@@ -21,6 +21,7 @@ app.get('/', (request, response) => {
 app.use(bodyParser.urlencoded({ extended: false }))
  
 app.use(bodyParser.json())
+app.use(express.static('public'));
 
 app.use("/books", bookRouter);
 app.use("/users", userRouter);
