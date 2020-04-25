@@ -2,7 +2,7 @@ const uuid = require('uuid/v4');
 const db = require("../db.js");
 
 let getAllBooks = (req, res) => {
-  res.render("book/books", {
+  res.render("books/books", {
     books: db.get("books").value()
   });
 }
