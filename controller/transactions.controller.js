@@ -20,11 +20,21 @@ let createNewTransaction = (req, res) => {
 };
 let Complete = (req, res) => {
   let transId = req.params.transId;
-  db.get("transactions")
-    .find({ transId })
-    .assign({ isComplete: true })
-    .write();
-  return res.redirect("/transactions/create");
+  let errors = [];
+  let pass = db.get("transactions").find({transId}).value();
+  if(pass) { 
+    db.get("transactions")
+      .find({ transId })
+      .assign({ isComplete: true })
+      .write();
+    return res.redirect("/transactions");
+  } else {
+    errors.push('Id này không tồn tại');
+    return res.render("transactions/", {
+      errors: errors,
+      transactions: db.get("transactions").value()
+    })
+  }
 };
 
 
