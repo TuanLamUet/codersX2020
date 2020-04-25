@@ -1,0 +1,8 @@
+extends ../layouts/nav-bar.pug
+
+block content
+  h1 Đổi tên
+
+  form(action="/users/"+userId+"/update", method="POST")
+    input(type="text" name="name")
+    button(type="submit") Đổi

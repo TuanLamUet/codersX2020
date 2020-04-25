@@ -1,0 +1,6 @@
+extends ../layouts/nav-bar.pug
+
+block content
+  form(action="/books/"+bookId+"/update" method="POST")
+      input(type="text" name="title")
+      button(type="submit") Đổi

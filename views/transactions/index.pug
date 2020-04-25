@@ -1,0 +1,8 @@
+extends ../layouts/nav-bar.pug
+
+block content
+  ul
+  each transaction in transactions
+    li
+      span=transaction.transId
+      a(href="/transactions/"+ transaction.transId +"/complete") Hoàn thành

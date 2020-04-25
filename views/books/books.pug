@@ -1,0 +1,14 @@
+extends ../layouts/nav-bar.pug
+
+block content
+  form(action="/books" method="POST")
+    input(name="title" type="text")
+    input(name="description" type="text")
+    button(type="submit") Thêm sách vào thư viện
+    
+  ul
+    each book in books
+      li
+        span=book.title
+        a(href="/books/"+book.bookId+"/update-title") Sửa tên sách
+        a(href="/books/"+book.bookId+"/delete") Xóa
