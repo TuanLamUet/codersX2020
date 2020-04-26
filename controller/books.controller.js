@@ -23,7 +23,7 @@ let deleteBook =(req, res) => {
 
 let changeTitlePage =(req, res) => {
   let bookId = req.params.bookId;
-  return res.render("book/book-title.pug", {
+  return res.render("books/book-title.pug", {
     bookId: bookId
   })
 };
