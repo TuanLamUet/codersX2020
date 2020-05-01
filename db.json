@@ -1,13 +1,4 @@
 {
-<<<<<<< HEAD
-  "books": [],
-  "users": [
-    {
-      "userId": "dce251e2-c9c9-4507-ba42-2118b43a16ce",
-      "name": "Lâm Tuấn",
-      "email": "tuan@gmail.com",
-      "passwod": "123123"
-=======
   "books": [
     {
       "bookId": "7fe1c1a3-aba2-47b2-9d2c-55348cf29ee2",
@@ -45,7 +36,6 @@
       "name": "Lâm Tuấn Vawn",
       "email": "nguyen@gmail.com",
       "password": "123123"
->>>>>>> e310ae909da06351d2dea74b466b42c96694a5d7
     }
   ],
   "transactions": []

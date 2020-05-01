@@ -1,9 +1,7 @@
 extends ../layouts/nav-bar.pug
 
 block content
-<<<<<<< HEAD
-=======
-  
+
   h2 Đăng nhập
   a.btn.btn-success(href="/users/login") Đăng nhập
   br
@@ -12,13 +10,6 @@ block content
     each error in errors  
       .alert.alert-danger=error
 
-  h2 Tạo user mới
-  form(action="/users/create" method="POST")
-    input(type="text" name="name" placeholder="Nhập tên user" required)
-    input(type="email", name="email" placeholder="nhập email")
-    button(type="submit") Tạo
-
->>>>>>> e310ae909da06351d2dea74b466b42c96694a5d7
   ul
     each user in users
       li

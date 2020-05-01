@@ -15,9 +15,7 @@ let createUser = (req, res) => {
 let createNewUser = (req, res) => {
   let name = req.body.name;
   let email = req.body.email;
-<<<<<<< HEAD
   db.get("users").push({userId: uuid(), name, email,password: '123123'}).write();
-=======
   let errors = [];
   let oldUser = db.get('users').find({email}).value();
   if(oldUser) {
@@ -28,7 +26,6 @@ let createNewUser = (req, res) => {
     })
   }
   db.get("users").push({userId: uuid(), name, email, password: '123123'}).write();
->>>>>>> e310ae909da06351d2dea74b466b42c96694a5d7
   return res.redirect("/users")
 };
 let deleteAnUser =(req, res) => {
