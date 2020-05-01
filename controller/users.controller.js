@@ -1,4 +1,5 @@
 const uuid = require('uuid/v4');
+const md5 = require('md5');
 
 const db = require("../db.js");
 
@@ -18,6 +19,7 @@ let createUser = (req, res) => {
 let createNewUser = (req, res) => {
   let name = req.body.name;
   let email = req.body.email;
+  let password = req.body.password;
   let errors = [];
   let oldUser = db.get('users').find({email}).value();
   if(oldUser) {
@@ -28,7 +30,7 @@ let createNewUser = (req, res) => {
       user: db.get("users").find({userId: req.cookies.userId}).value()
     })
   }
-  db.get("users").push({userId: uuid(), name, email,password: '123123', isAdmin: false}).write();
+  db.get("users").push({userId: uuid(), name, email,password: md5(password), isAdmin: false}).write();
     return res.redirect("/users")
 };
 let deleteAnUser =(req, res) => {
