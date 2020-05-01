@@ -5,6 +5,8 @@ block content
     each error in errors  
       .alert.alert-danger=error
 
+  h2 Tạo transaction mới
+  a.btn.btn-success(href="/transactions/create") Tạo transactions
   ul
   each transaction in transactions
     li

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const db = require('../db.js');
 
 const login = (req, res) => {
@@ -26,4 +27,14 @@ const loginPost = (req, res) => {
 module.exports = {
   login,
   loginPost
+=======
+const db = require('../db.json');
+
+const login = (req, res) => {
+  let user
+}
+
+module.exports = {
+  login
+>>>>>>> e310ae909da06351d2dea74b466b42c96694a5d7
 }

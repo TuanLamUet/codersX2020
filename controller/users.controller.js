@@ -15,7 +15,20 @@ let createUser = (req, res) => {
 let createNewUser = (req, res) => {
   let name = req.body.name;
   let email = req.body.email;
+<<<<<<< HEAD
   db.get("users").push({userId: uuid(), name, email,password: '123123'}).write();
+=======
+  let errors = [];
+  let oldUser = db.get('users').find({email}).value();
+  if(oldUser) {
+    errors.push('User này đã tồn tại')
+    return res.render("users/users", {
+      errors: errors,
+      users: db.get("users").value()
+    })
+  }
+  db.get("users").push({userId: uuid(), name, email, password: '123123'}).write();
+>>>>>>> e310ae909da06351d2dea74b466b42c96694a5d7
   return res.redirect("/users")
 };
 let deleteAnUser =(req, res) => {
@@ -36,12 +49,15 @@ let updateNameUser = (req, res) => {
   db.get("users").find({userId}).assign({name}).write();
   return res.redirect("/users");
 };
-
+let login = (req, res) => {
+  res.render("users/login.pug")
+}
 module.exports = {
   getAllUser,
   createUser,
   createNewUser,
   deleteAnUser,
   updateNameUser,
-  updateNameUserPage
+  updateNameUserPage,
+  login
 }
