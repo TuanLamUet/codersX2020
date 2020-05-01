@@ -19,13 +19,13 @@ app.set("view engine", "pug");
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json())
-app.use(cookieParser()); 
+app.use(cookieParser('codersX2020')); 
 app.use(express.static('public'));
 
 app.get('/',authMiddleware.requireAuth, (req, res) => {
 
   res.render("layouts/nav-bar.pug", {
-    user: db.get("users").find({userId: req.cookies.userId}).value()
+    user: db.get("users").find({userId: req.signedCookies.userId}).value()
   });
 })
 

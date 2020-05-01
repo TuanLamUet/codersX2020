@@ -11,12 +11,12 @@ let salt = bcrypt.genSaltSync(saltRouds);
 let getAllUser = (req, res) => {
   return res.render("users/users.pug", {
     users: db.get("users").value(),
-    user: db.get("users").find({userId: req.cookies.userId}).value()
+    user: db.get("users").find({userId: req.signedCookies.userId}).value()
   });
 };
 let createUser = (req, res) => {
   return res.render("users/create.pug" ,{
-    user: db.get("users").find({userId: req.cookies.userId}).value()
+    user: db.get("users").find({userId: req.signedCookies.userId}).value()
   });
 }
 let createNewUser = (req, res) => {
@@ -30,7 +30,7 @@ let createNewUser = (req, res) => {
     return res.render("users/users", {
       errors: errors,
       users: db.get("users").value(),
-      user: db.get("users").find({userId: req.cookies.userId}).value()
+      user: db.get("users").find({userId: req.signedCookies.userId}).value()
     })
   }
   db.get("users").push({userId: uuid.generate(), name, email,password, isAdmin: false, wrongLoginCount: 0}).write();
@@ -46,7 +46,7 @@ let updateNameUserPage = (req, res) => {
   let userId = req.params.userId;
   return res.render("users/change-name.pug",{
     userId,
-    user: db.get("users").find({userId: req.cookies.userId}).value()
+    user: db.get("users").find({userId: req.signedCookies.userId}).value()
   })
 };
 let updateNameUser = (req, res) => {

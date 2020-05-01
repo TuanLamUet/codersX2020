@@ -32,7 +32,9 @@ const loginPost = (req, res) => {
     });
   }
   user.wrongLoginCount = 0;
-  res.cookie('userId', user.userId)
+  res.cookie('userId', user.userId, {
+    signed: true
+  })
   return res.redirect("/");
 }
 
