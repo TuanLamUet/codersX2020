@@ -18,13 +18,14 @@ html(lang="en")
           li.nav-item.active
             a.nav-link(href='/books')
               | Books 
-              span.sr-only (current)
+             
           li.nav-item.active
             a.nav-link(href='/users')
               | Users 
-              span.sr-only (current)
-          li.nav-item.active
-            a.nav-link(href='/transactions')
-              | Transactions
-              span.sr-only (current)
+             
+          if user.isAdmin
+              li.nav-item.active
+                a.nav-link(href='/transactions')
+                  | Transactions
+                
     block content

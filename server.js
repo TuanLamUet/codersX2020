@@ -10,7 +10,7 @@ const authRouter = require("./router/auth.router");
 
 const authMiddleware = require('./middleware/auth.middleware');
 
-const db = require('./db.json');
+const db = require('./db.js');
 app.set("views", "./views");
 app.set("view engine", "pug");
 
@@ -23,7 +23,10 @@ app.use(cookieParser());
 app.use(express.static('public'));
 
 app.get('/',authMiddleware.requireAuth, (req, res) => {
-  res.render("index");
+
+  res.render("layouts/nav-bar.pug", {
+    user: db.get("users").find({userId: req.cookies.userId}).value()
+  });
 })
 
 

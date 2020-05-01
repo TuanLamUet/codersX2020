@@ -8,7 +8,8 @@ block content
   h2 Tạo transaction mới
   a.btn.btn-success(href="/transactions/create") Tạo transactions
   ul
-  each transaction in transactions
-    li
-      span=transaction.transId
-      a(href="/transactions/"+ transaction.transId +"/complete") Hoàn thành
+  if transactions
+    each transaction in transactions
+      li
+        span=transaction.transId
+        a(href="/transactions/"+ transaction.transId +"/complete") Hoàn thành
