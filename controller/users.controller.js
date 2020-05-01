@@ -1,8 +1,11 @@
-const uuid = require('uuid/v4');
-const md5 = require('md5');
+const uuid = require('shortid');
 
+const bcrypt = require('bcryptjs');
 const db = require("../db.js");
 
+
+let saltRouds = 10;
+let salt = bcrypt.genSaltSync(saltRouds);
 
 
 let getAllUser = (req, res) => {
@@ -19,7 +22,7 @@ let createUser = (req, res) => {
 let createNewUser = (req, res) => {
   let name = req.body.name;
   let email = req.body.email;
-  let password = req.body.password;
+  let password = bcrypt.hashSync(req.body.password, salt);
   let errors = [];
   let oldUser = db.get('users').find({email}).value();
   if(oldUser) {
@@ -30,7 +33,7 @@ let createNewUser = (req, res) => {
       user: db.get("users").find({userId: req.cookies.userId}).value()
     })
   }
-  db.get("users").push({userId: uuid(), name, email,password: md5(password), isAdmin: false}).write();
+  db.get("users").push({userId: uuid.generate(), name, email,password, isAdmin: false, wrongLoginCount: 0}).write();
     return res.redirect("/users")
 };
 let deleteAnUser =(req, res) => {

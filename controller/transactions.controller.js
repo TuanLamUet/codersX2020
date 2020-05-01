@@ -1,4 +1,4 @@
-const uuid = require('uuid/v1');
+const uuid = require('shortid');
 const db = require('../db.js');
 
 let getAllTransactions= (req, res) => {
@@ -19,7 +19,7 @@ let createNewTransactionPage =(req, res) => {
 };
 
 let createNewTransaction = (req, res) => {
-  db.get('transactions').push({transId: uuid(),bookId: req.body.bookId, userId: req.body.userId }).write();
+  db.get('transactions').push({transId: uuid.generate(),bookId: req.body.bookId, userId: req.body.userId }).write();
   return res.redirect("/transactions");  
 };
 

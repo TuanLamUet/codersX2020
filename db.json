@@ -20,6 +20,42 @@
       "email": "tupikano2@gmail.com",
       "password": "4297f44b13955235245b2497399d7a93",
       "isAdmin": false
+    },
+    {
+      "userId": "e935ad3e-25ee-4048-85ac-405608e5af12",
+      "name": "fdasfas",
+      "email": "tupikanfddo1@gmail.com",
+      "password": {},
+      "isAdmin": false
+    },
+    {
+      "userId": "e3880d1b-bc05-47db-afde-d55c6cfd57c9",
+      "name": "sdfds",
+      "email": "tupikansfo1@gmail.com",
+      "password": {},
+      "isAdmin": false
+    },
+    {
+      "userId": "83316316-ece4-4386-affc-fb948fffa80c",
+      "name": "sdafdas",
+      "email": "dsfdftupikano1@gmail.com",
+      "password": "$2a$10$4WkymKOjmcv57zwmJWe8OuDfCQyg0gKfr4DIq0NAmEk9ZkFW.VNyi",
+      "isAdmin": false
+    },
+    {
+      "userId": "gb8eBdMW1",
+      "name": "fdfd",
+      "email": "tupiksdfano1@gmail.com",
+      "password": "$2a$10$aSy5mvk3KrEwTn3motzhW.KjvssOXCp/PTbZOvBu0ZoFGqVyXG9w6",
+      "isAdmin": false
+    },
+    {
+      "userId": "r_ocmHn2K",
+      "name": "Lâm Tuấn",
+      "email": "tuanlv.amc@gmail.com",
+      "password": "$2a$10$X4sy6k8mSElaywmoeRbPT.iaISM2ZpTwTDUQU.oWkYOlBFH8JyVOW",
+      "isAdmin": false,
+      "wrongLoginCount": 0
     }
   ],
   "transactions": [
