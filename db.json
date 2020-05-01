@@ -10,9 +10,10 @@
     {
       "email": "tupikano1@gmail.com",
       "userId": "tupikano1@gmail.com",
-      "password": "123123",
+      "password": "$2a$10$X4sy6k8mSElaywmoeRbPT.iaISM2ZpTwTDUQU.oWkYOlBFH8JyVOW",
       "isAdmin": true,
-      "name": "Lam Tuan"
+      "name": "Lam Tuan",
+      "wrongLoginCount": 3
     },
     {
       "userId": "3971e85f-f8a2-481b-80c1-b5f810e73ed8",
@@ -54,6 +55,14 @@
       "name": "Lâm Tuấn",
       "email": "tuanlv.amc@gmail.com",
       "password": "$2a$10$X4sy6k8mSElaywmoeRbPT.iaISM2ZpTwTDUQU.oWkYOlBFH8JyVOW",
+      "isAdmin": false,
+      "wrongLoginCount": 0
+    },
+    {
+      "userId": "P3_sYGfMV",
+      "name": "Lâm Tuấn",
+      "email": "tuann@gmail.com",
+      "password": "$2a$10$CaNgWkxxGPDLouv49o6lqelzxYv7uTjVGiXxhDtC2Rv5oGKAOHU3a",
       "isAdmin": false,
       "wrongLoginCount": 0
     }
