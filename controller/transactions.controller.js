@@ -3,10 +3,10 @@ const db = require('../db.js');
 
 let getAllTransactions= (req, res) => {
   let trans = db.get("transactions").value()
-  trans.filter(item => item.userId === req.cookies.userId)
+  trans.filter(item => item.userId === req.signedCookies.userId)
   return res.render("transactions/index", {
     transactions: trans,
-    user: db.get("users").find({userId: req.cookies.userId}).value()
+    user: db.get("users").find({userId: req.signedCookies.userId}).value()
   })
 };
 
@@ -14,7 +14,7 @@ let createNewTransactionPage =(req, res) => {
   return res.render("transactions/create", {
     users: db.get('users').value(),
     books: db.get('books').value(),
-    user: db.get("users").find({userId: req.cookies.userId}).value()
+    user: db.get("users").find({userId: req.signedCookies.userId}).value()
   });
 };
 
@@ -38,7 +38,7 @@ let Complete = (req, res) => {
     return res.render("transactions/", {
       errors: errors,
       transactions: db.get("transactions").value(),
-      user: db.get("users").find({userId: req.cookies.userId}).value()
+      user: db.get("users").find({userId: req.signedCookies.userId}).value()
     })
   }
 };

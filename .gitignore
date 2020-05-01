@@ -1,5 +1,2 @@
-<<<<<<< HEAD
 node_modules/
-=======
-node_modules/
->>>>>>> e310ae909da06351d2dea74b466b42c96694a5d7
+sendgrid.env

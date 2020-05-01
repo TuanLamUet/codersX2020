@@ -4,7 +4,7 @@ const db = require("../db.js");
 let getAllBooks = (req, res) => {
   res.render("books/books", {
     books: db.get("books").value(),
-    user: db.get("users").find({userId: req.cookies.userId}).value()
+    user: db.get("users").find({userId: req.signedCookies.userId}).value()
   });
 }
 
@@ -26,7 +26,7 @@ let changeTitlePage =(req, res) => {
   let bookId = req.params.bookId;
   return res.render("books/book-title.pug", {
     bookId: bookId,
-    user: db.get("users").find({userId: req.cookies.userId}).value()
+    user: db.get("users").find({userId: req.signedCookies.userId}).value()
   })
 };
 
