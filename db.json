@@ -1,54 +1,12 @@
 {
-  "books": [
-    {
-      "bookId": "8850ca95-09ae-4b3f-a4ad-513910227f55",
-      "title": "css",
-      "description": "fsafa"
-    },
-    {
-      "bookId": "a2a44019-eea9-49a1-9d61-ee2e3c5bb009",
-      "title": "html",
-      "description": ""
-    }
-  ],
+  "books": [],
   "users": [
     {
-      "userId": "baeb5884-2ac9-4b87-a5ac-dfe6b31f4d1c",
-      "name": "Lâm Tuấn"
-    },
-    {
-      "userId": "32d3113b-69c4-4202-a69b-db1e034e15a3",
-      "name": "Lâm Tuấn Vawn"
-    },
-    {
-      "userId": "e1d60cfe-f705-45e1-bf7d-3b1a77904688",
-      "name": "Hai Nam"
+      "userId": "dce251e2-c9c9-4507-ba42-2118b43a16ce",
+      "name": "Lâm Tuấn",
+      "email": "tuan@gmail.com",
+      "passwod": "123123"
     }
   ],
-  "transactions": [
-    {
-      "transId": "662345c5-e119-418d-8ced-db43f24e9db8",
-      "bookId": "8850ca95-09ae-4b3f-a4ad-513910227f55",
-      "userId": "baeb5884-2ac9-4b87-a5ac-dfe6b31f4d1c",
-      "isComplete": true
-    },
-    {
-      "transId": "2dcecdd2-0eed-4a19-8908-e65a152f3a59",
-      "bookId": "8850ca95-09ae-4b3f-a4ad-513910227f55",
-      "userId": "baeb5884-2ac9-4b87-a5ac-dfe6b31f4d1c",
-      "isComplete": true
-    },
-    {
-      "transId": "397ef007-e028-4d57-b4f5-8ab0d43c6d7a",
-      "bookId": "8850ca95-09ae-4b3f-a4ad-513910227f55",
-      "userId": "baeb5884-2ac9-4b87-a5ac-dfe6b31f4d1c",
-      "isComplete": true
-    },
-    {
-      "transId": "41612c82-cdec-4fda-8af6-5eeffdb6dbb0",
-      "bookId": "8850ca95-09ae-4b3f-a4ad-513910227f55",
-      "userId": "baeb5884-2ac9-4b87-a5ac-dfe6b31f4d1c",
-      "isComplete": true
-    }
-  ]
+  "transactions": []
 }

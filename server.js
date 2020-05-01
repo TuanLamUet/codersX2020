@@ -11,7 +11,9 @@ const cookieParser = require('cookie-parser');
 const booksRouter = require("./router/books.router");
 const usersRouter = require("./router/users.router");
 const transactionsRouter = require('./router/transactions.router');
-const countTimesCookie = require('./middleware/coutTimesCookie');
+const authRouter = require("./router/auth.router");
+
+const authMiddleware = require('./middleware/auth.middleware');
 
 app.set("views", "./views");
 app.set("view engine", "pug");
@@ -24,17 +26,15 @@ app.use(bodyParser.json())
 app.use(cookieParser()); 
 app.use(express.static('public'));
 
-app.use('/', countTimesCookie)
-
-app.get('/', (request, response) => {
-  response.cookie('user', '12345')
-  response.render("index");
+app.get('/',authMiddleware.requireAuth, (req, res) => {
+  res.render("index");
 });
 
 
-app.use("/books", booksRouter);
-app.use("/users", usersRouter);
-app.use("/transactions", transactionsRouter);
+app.use("/books",authMiddleware.requireAuth ,booksRouter);
+app.use("/users",authMiddleware.requireAuth, usersRouter);
+app.use("/transactions",authMiddleware.requireAuth, transactionsRouter);
+app.use("/auth", authRouter);
 // listen for requests :)
 
 app.listen(3001, () => {

@@ -1,0 +1,17 @@
+extends ../layouts/nav-bar.pug
+
+block content
+  form.container(action="/users/create" method="POST")
+    h2 Tạo user
+    if errors
+      each error in errors  
+        .alert.alert-danger=error
+    .form-group
+      label(for='name') username
+      input#name.form-control(type='text', name="name", placeholder='Enter your usernam' value=values ? value.username : '')
+
+    .form-group
+      label(for='email') Email address
+      input#email.form-control(type='email', name="email", placeholder='Enter email' value=values ? values.email : '')
+      small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
+    button.btn.btn-outline-success(type='submit') Đăng nhập

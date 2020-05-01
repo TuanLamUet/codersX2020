@@ -9,9 +9,13 @@ let getAllUser = (req, res) => {
     users: db.get("users").value()
   });
 };
+let createUser = (req, res) => {
+  return res.render("users/create.pug");
+}
 let createNewUser = (req, res) => {
   let name = req.body.name;
-  db.get("users").push({userId: uuid(), name: name}).write();
+  let email = req.body.email;
+  db.get("users").push({userId: uuid(), name, email,password: '123123'}).write();
   return res.redirect("/users")
 };
 let deleteAnUser =(req, res) => {
@@ -35,6 +39,7 @@ let updateNameUser = (req, res) => {
 
 module.exports = {
   getAllUser,
+  createUser,
   createNewUser,
   deleteAnUser,
   updateNameUser,
