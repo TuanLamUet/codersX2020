@@ -1,4 +1,4 @@
-const uuid = require('uuid/v4');
+const uuid = require('shortid');
 const db = require("../db.js");
 
 let getAllBooks = (req, res) => {
@@ -10,7 +10,7 @@ let getAllBooks = (req, res) => {
 
 let addNewBook =(req, res) => {
   let title = req.body.title;
-  let bookId = uuid();
+  let bookId = uuid.generate();
   let description = req.body.description;
   db.get('books').push({bookId, title, description}).write()
   return res.redirect('/books');
