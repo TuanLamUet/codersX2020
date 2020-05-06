@@ -2,7 +2,12 @@ const uuid = require('shortid');
 const db = require('../db.js');
 
 let getAllTransactions= (req, res) => {
-  let trans = db.get("transactions").value()
+  let page = parseInt(req.query.page) || 1;
+  let perPage = 8;
+  let start = (page - 1) * perPage;
+  let end = page * perPage;
+
+  let trans = db.get("transactions").value().slice(start, end)
   trans.filter(item => item.userId === req.signedCookies.userId)
   return res.render("transactions/index", {
     transactions: trans,
