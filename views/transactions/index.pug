@@ -1,15 +1,29 @@
 extends ../layouts/nav-bar.pug
 
 block content
-  if errors
-    each error in errors  
-      .alert.alert-danger=error
+  .container
+    if errors
+      each error in errors  
+        .alert.alert-danger=error
 
-  h2 Tạo transaction mới
-  a.btn.btn-success(href="/transactions/create") Tạo transactions
-  ul
-  if transactions
-    each transaction in transactions
-      li
-        span=transaction.transId
-        a(href="/transactions/"+ transaction.transId +"/complete") Hoàn thành
+    h2 Tạo transaction mới
+    a.btn.btn-success(href="/transactions/create") Tạo transactions
+    ul
+    if transactions
+      each transaction in transactions
+        li
+          span=transaction.transId
+          a(href="/transactions/"+ transaction.transId +"/complete") Hoàn thành
+
+    nav(aria-label='Page navigation example')
+      ul.pagination
+        li.page-item
+          a.page-link(href='#') Previous
+        li.page-item
+          a.page-link(href='#') 1
+        li.page-item
+          a.page-link(href='#') 2
+        li.page-item
+          a.page-link(href='#') 3
+        li.page-item
+          a.page-link(href='#') Next

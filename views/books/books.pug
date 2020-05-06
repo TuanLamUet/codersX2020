@@ -1,14 +1,19 @@
 extends ../layouts/nav-bar.pug
 
 block content
-  form(action="/books" method="POST")
-    input(name="title" type="text")
-    input(name="description" type="text")
-    button(type="submit") Thêm sách vào thư viện
-    
-  ul
-    each book in books
-      li
-        span=book.title
-        a(href="/books/"+book.bookId+"/update-title") Sửa tên sách
-        a(href="/books/"+book.bookId+"/delete") Xóa
+  .container 
+    h3 Thêm sách vào thư viện       
+    form(action="/books" method="POST")
+      .form-group
+        label(for='title') Tên sách
+        input#title.form-control(type='text', name="title")
+      .form-group
+        label(for='description') Mô tả sách
+        input#description.form-control(type='text' name="description")
+      button.btn.btn-outline-success(type='submit') Thêm sách    
+    ul
+      each book in books
+        li
+          span=book.title
+          a(href="/books/"+book.bookId+"/update-title") Sửa tên sách
+          a(href="/books/"+book.bookId+"/delete") Xóa

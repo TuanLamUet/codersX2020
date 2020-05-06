@@ -9,8 +9,13 @@ let salt = bcrypt.genSaltSync(saltRouds);
 
 
 let getAllUser = (req, res) => {
+  let page = parseInt(req.query.page) || 1;
+  let perPage = 8;
+  let start = (page - 1) * perPage;
+  let end = page * perPage;
+
   return res.render("users/users.pug", {
-    users: db.get("users").value(),
+    users: db.get("users").value().slice(start, end),
     user: db.get("users").find({userId: req.signedCookies.userId}).value()
   });
 };
