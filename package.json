@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --inspect server.js",
     "start": "node server.js",
     "test": "jest"
   },
