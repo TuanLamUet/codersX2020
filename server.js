@@ -3,10 +3,12 @@ const app = express();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
+
 const booksRouter = require("./router/books.router");
 const usersRouter = require("./router/users.router");
 const transactionsRouter = require('./router/transactions.router');
 const authRouter = require("./router/auth.router");
+const profileRouter = require('./router/profile.router')
 
 const authMiddleware = require('./middleware/auth.middleware');
 
@@ -34,8 +36,9 @@ app.use("/books",authMiddleware.requireAuth ,booksRouter)
 app.use("/users",authMiddleware.requireAuth, usersRouter)
 app.use("/transactions",authMiddleware.requireAuth, transactionsRouter);
 app.use("/auth", authRouter);
+app.use("/profile", profileRouter)
 // listen for requests :)
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('server is runing on port 3000')
 })
