@@ -28,6 +28,7 @@ let createNewUser = (req, res) => {
   let name = req.body.name;
   let email = req.body.email;
   let password = bcrypt.hashSync(req.body.password, salt);
+  let avatar = req.file.path.split("/").splice(1).join("/");
   let errors = [];
   let oldUser = db.get('users').find({email}).value();
   if(oldUser) {
@@ -38,7 +39,7 @@ let createNewUser = (req, res) => {
       user: db.get("users").find({userId: req.signedCookies.userId}).value()
     })
   }
-  db.get("users").push({userId: uuid.generate(), name, email,password, isAdmin: false, wrongLoginCount: 0}).write();
+  db.get("users").push({userId: uuid.generate(), name, email,password, isAdmin: false, wrongLoginCount: 0, avatar}).write();
     return res.redirect("/users")
 };
 let deleteAnUser =(req, res) => {

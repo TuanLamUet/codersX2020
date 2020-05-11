@@ -1,7 +1,7 @@
 extends ../layouts/nav-bar.pug
 
 block content
-  form.container(action="/users/create" method="POST")
+  form.container(action="/users/create" method="POST" enctype="multipart/form-data")
     h2 Tạo user
     if errors
       each error in errors  
@@ -15,6 +15,9 @@ block content
       input#email.form-control(type='email', name="email", placeholder='Enter email' value=values ? values.email : '')
       small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
     .form-group
-      label(for='password') Email address
+      label(for='password') Password
       input#email.form-control(type='password', name="password", placeholder='Enter your password' value=values ? values.password : '')
+    .form-group
+      label(for="avatar")  Upload avatar
+      input#avatar.form-control-file(type="file", name="avatar")
     button.btn.btn-outline-success(type='submit') Tạo
